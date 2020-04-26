@@ -1,16 +1,15 @@
 http echo
 ---------
 
-
 natの設定確認のための簡易webサーバーです。
-単純にこのwebサーバーから見たリモートクライアントのipアドレスを返すだけです。
-
 pingだけではtcpがちゃんと疎通できるのか頼りないので、これをラズパイにインストールして検証したいVLANのアクセスポートに接続して使用してました。
-なので `make` は僕のプライベートラズパイmodel2向けのバイナリを生成します。
+単純にwebサーバーから見たリモートクライアントのipアドレスを返すだけです。
+[https://httpbin.org/ip](https://httpbin.org/ip)みたいなサービスがイントラ内に必要だったので実装しました。
 
+`make` は僕のラズパイmodel2向けのバイナリを生成します。
+[こちら](https://gist.github.com/asukakenji/f15ba7e588ac42795f421b48b8aede63)を参考に必要に応じて`Makefile`を修正して、`go build`のオプションを修正してください。
 
 -----
-
 
 ## REQUIREMENTS
 
@@ -35,7 +34,7 @@ $ curl 0.0.0.0
 ビルドしたバイナリとunitファイルをラズパイへ配置します。
 
 deployのスクリプトで`remote_user`と`remote_host` を参照します。
-direnvなどを利用して環境変数で指定してください。
+[direnv](https://github.com/direnv/direnv)などを利用して環境変数で指定してください。
 
 - 例
   - remote_user
@@ -67,3 +66,6 @@ systemctl start http-echo
 ```
 
 ## REFERENCE
+
+echoの実装はこちらを参考にさせていただきました。
+- https://github.com/methane/echoserver
