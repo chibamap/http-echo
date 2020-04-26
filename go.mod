@@ -1,6 +1,6 @@
 module github.com/hogehoge-banana/http-echo
 
-go 1.12
+go 1.14
 
 replace github.com/hogehoge-banana/http-echo => ./
 

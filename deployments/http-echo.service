@@ -1,0 +1,10 @@
+[Unit]
+Description=http echo network debug server
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/http-echo
+
+[Install]
+WantedBy=multi-user.target
